@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding=" UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse_reply (Rhaiker::XML_Parser)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset= UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rhaiker/xml_parser.rb, line 95</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_reply</span>(<span class="ruby-identifier">reply</span>)
+      {
+        <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'id'</span>].<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span>,
+        <span class="ruby-identifier">:created_at</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">reply</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'created_at'</span>].<span class="ruby-identifier">text</span>),
+        <span class="ruby-identifier">:favorited</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'favorited'</span>].<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span>,
+        <span class="ruby-identifier">:source</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'source'</span>].<span class="ruby-identifier">text</span>,
+        <span class="ruby-identifier">:text</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-identifier">reply</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'text'</span>].<span class="ruby-identifier">text</span>,
+        <span class="ruby-identifier">:user</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-identifier">parse_user</span>(<span class="ruby-identifier">reply</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'user'</span>])
+      }
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

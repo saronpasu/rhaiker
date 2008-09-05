@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding=" UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>get_friends (Rhaiker)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset= UTF-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rhaiker.rb, line 248</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_friends</span>(<span class="ruby-identifier">user_id</span> = <span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-identifier">uri_base</span> = <span class="ruby-constant">BaseAddress</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'statuses/friends'</span>
+    <span class="ruby-identifier">uri_base</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">user_id</span> <span class="ruby-value">? </span><span class="ruby-node">&quot;/#{user_id}.xml&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">'.xml'</span>
+    <span class="ruby-identifier">uri</span> = <span class="ruby-identifier">create_uri</span>(<span class="ruby-identifier">uri_base</span>)
+    <span class="ruby-identifier">request</span> = <span class="ruby-identifier">create_request</span>(<span class="ruby-identifier">:get</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">user_id</span>.<span class="ruby-identifier">nil?</span>)
+    <span class="ruby-identifier">document</span> = <span class="ruby-identifier">http_access</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">request</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">document</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">parse_users</span>(<span class="ruby-identifier">document</span>)
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

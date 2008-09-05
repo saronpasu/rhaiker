@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding=" UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse_status (Rhaiker::XML_Parser)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset= UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rhaiker/xml_parser.rb, line 48</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_status</span>(<span class="ruby-identifier">status</span>)
+      <span class="ruby-identifier">result</span> = {
+        <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-identifier">status</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'id'</span>].<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span>,
+        <span class="ruby-identifier">:text</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-identifier">status</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'text'</span>].<span class="ruby-identifier">text</span>,
+        <span class="ruby-identifier">:link</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">status</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'link'</span>].<span class="ruby-identifier">text</span>),
+        <span class="ruby-identifier">:created_at</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">status</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'created_at'</span>].<span class="ruby-identifier">text</span>),
+        <span class="ruby-identifier">:favorited</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-identifier">status</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'favorited'</span>].<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span>,
+        <span class="ruby-identifier">:source</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-identifier">status</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'source'</span>].<span class="ruby-identifier">text</span>,
+        <span class="ruby-identifier">:user</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-identifier">parse_user</span>(<span class="ruby-identifier">status</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'user'</span>])
+      }
+      <span class="ruby-identifier">in_reply_to</span> = {
+        <span class="ruby-identifier">:in_reply_to</span> =<span class="ruby-operator">&gt;</span> {
+          <span class="ruby-identifier">:status_id</span> =<span class="ruby-operator">&gt;</span>
+            <span class="ruby-identifier">status</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'in_reply_to_status_id'</span>].<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span>,
+          <span class="ruby-identifier">:user_id</span> =<span class="ruby-operator">&gt;</span>
+            <span class="ruby-identifier">status</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'in_reply_to_user_id'</span>].<span class="ruby-identifier">text</span>
+        }
+      } <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">status</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'in_reply_to_status_id'</span>].<span class="ruby-identifier">has_text?</span>
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">in_reply_to</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">in_reply_to</span>
+      <span class="ruby-identifier">replies</span> = <span class="ruby-identifier">status</span>.<span class="ruby-identifier">elements</span>.<span class="ruby-identifier">collect</span>(<span class="ruby-value str">'replies'</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">reply</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">parse_reply</span>(<span class="ruby-identifier">reply</span>)
+      }
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">merge!</span>({<span class="ruby-identifier">:replies</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">replies</span>}) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">replies</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

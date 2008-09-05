@@ -1,0 +1,45 @@
+h1. rhaiker
+
+h2. What
+
+Rhaiker is Hatena::Haiku::API ruby binding.
+Hatena::Haiku is Japanese micro-blog service.
+
+Hatena::Haiku
+  http://h.hatena.ne.jp/
+
+Hatena::Haiku::API
+  http://h.hatena.ne.jp/api
+
+h2. Installing
+
+<pre syntax="ruby">sudo gem install rhaiker</pre>
+
+h2. The basics
+
+
+h2. Demonstration of usage
+
+require 'rhaiker'
+
+rhaiker = Rhaiker.new
+rhaiker.user_id = 'your_user_id'
+rhaiker.api_key = 'your_api_key'
+rhaiker.status_update({:status => 'HogeHoge'}
+
+h3. Build and test instructions
+
+<pre>cd rhaiker
+rake spec
+rake install_gem</pre>
+
+
+h2. License
+
+This code is free to use under the terms of the MIT license. 
+
+h2. Contact
+
+Comments are welcome.
+Send an email to jamneco at gmail dot com.
+

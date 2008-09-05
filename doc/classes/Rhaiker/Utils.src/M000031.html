@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding=" UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>create_request (Rhaiker::Utils)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset= UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rhaiker/utils.rb, line 31</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_request</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">use_basic_auth</span> = <span class="ruby-keyword kw">false</span>)
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">type</span>
+        <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:get</span>
+          <span class="ruby-identifier">request</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">request_uri</span>)
+        <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:post</span>
+          <span class="ruby-identifier">request</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Post</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">request_uri</span>)
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">request</span>[<span class="ruby-value str">'User-Agent'</span>] = <span class="ruby-ivar">@user_agent</span>
+      <span class="ruby-identifier">request</span>.<span class="ruby-identifier">basic_auth</span> <span class="ruby-ivar">@user_id</span>, <span class="ruby-ivar">@api_key</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">use_basic_auth</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">request</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

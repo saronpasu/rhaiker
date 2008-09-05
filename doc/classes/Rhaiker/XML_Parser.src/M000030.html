@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding=" UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse_keyword (Rhaiker::XML_Parser)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset= UTF-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rhaiker/xml_parser.rb, line 195</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_keyword</span>(<span class="ruby-identifier">keyword</span>)
+      {
+        <span class="ruby-identifier">:title</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'title'</span>].<span class="ruby-identifier">text</span>,
+        <span class="ruby-identifier">:entry_count</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'entry_count'</span>].<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span>,
+        <span class="ruby-identifier">:followers_count</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'followers_count'</span>].<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span>,
+        <span class="ruby-identifier">:link</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">elements</span>[<span class="ruby-value str">'link'</span>].<span class="ruby-identifier">text</span>),
+        <span class="ruby-identifier">:related_keywords</span> =<span class="ruby-operator">&gt;</span>
+          <span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">elements</span>.<span class="ruby-identifier">to_a</span>(<span class="ruby-value str">'related_keywords'</span>)
+      }
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

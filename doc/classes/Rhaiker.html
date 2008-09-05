@@ -1,0 +1,980 @@
+<?xml version="1.0" encoding=" UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Rhaiker</title>
+  <meta http-equiv="Content-Type" content="text/html; charset= UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Rhaiker</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/rhaiker_rb.html">
+                lib/rhaiker.rb
+                </a>
+        <br />
+                <a href="../files/lib/rhaiker/utils_rb.html">
+                lib/rhaiker/utils.rb
+                </a>
+        <br />
+                <a href="../files/lib/rhaiker/version_rb.html">
+                lib/rhaiker/version.rb
+                </a>
+        <br />
+                <a href="../files/lib/rhaiker/xml_parser_rb.html">
+                lib/rhaiker/xml_parser.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+<a href="Rhaiker.html">Rhaiker</a> is Hatena::Haiku::API ruby binding. Use
+only Pure Ruby library.
+</p>
+<p>
+see exsample/*.rb
+</p>
+<p>
+please show <a
+href="http://h.hatena.ne.jp/api">Hatena::Haiku::API::Guide</a>
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000018">favorites_create</a>&nbsp;&nbsp;
+      <a href="#M000019">favorites_destroy</a>&nbsp;&nbsp;
+      <a href="#M000016">friendship_create</a>&nbsp;&nbsp;
+      <a href="#M000017">friendship_destroy</a>&nbsp;&nbsp;
+      <a href="#M000005">get_album</a>&nbsp;&nbsp;
+      <a href="#M000008">get_followers</a>&nbsp;&nbsp;
+      <a href="#M000009">get_friend</a>&nbsp;&nbsp;
+      <a href="#M000007">get_friends</a>&nbsp;&nbsp;
+      <a href="#M000002">get_friends_timeline</a>&nbsp;&nbsp;
+      <a href="#M000010">get_hot_keywords</a>&nbsp;&nbsp;
+      <a href="#M000013">get_keyword</a>&nbsp;&nbsp;
+      <a href="#M000011">get_keyword_list</a>&nbsp;&nbsp;
+      <a href="#M000004">get_keyword_timeline</a>&nbsp;&nbsp;
+      <a href="#M000012">get_keywords</a>&nbsp;&nbsp;
+      <a href="#M000001">get_public_timeline</a>&nbsp;&nbsp;
+      <a href="#M000006">get_status</a>&nbsp;&nbsp;
+      <a href="#M000003">get_user_timeline</a>&nbsp;&nbsp;
+      <a href="#M000020">keyword_create</a>&nbsp;&nbsp;
+      <a href="#M000021">keyword_destroy</a>&nbsp;&nbsp;
+      <a href="#M000022">keyword_relation_create</a>&nbsp;&nbsp;
+      <a href="#M000023">keyword_relation_destroy</a>&nbsp;&nbsp;
+      <a href="#M000015">status_destroy</a>&nbsp;&nbsp;
+      <a href="#M000014">status_update</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="Rhaiker/Utils.html">Utils</a></span>
+        <span class="include-name"><a href="Rhaiker/XML_Parser.html">XML_Parser</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="Rhaiker/Utils.html" class="link">Rhaiker::Utils</a><br />
+Module <a href="Rhaiker/XML_Parser.html" class="link">Rhaiker::XML_Parser</a><br />
+
+    </div>
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">BaseAddress</td>
+          <td>=</td>
+          <td class="context-item-value">'http://h.hatena.ne.jp/api/'</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+Hatena::Haiku::API BaseURL
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">api_key</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+Hatena::Haiku::API API-Key String
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">source</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+Hatena::Haiku::API ClientSource String
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">user_agent</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+HTTP-HEADER &#8216;User-Agent&#8217; String
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">user_id</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+Hatena::UserID String
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000018.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000018.html');return false;">
+          <span class="method-name">favorites_create</span><span class="method-args">(status_id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>add star for <a
+href="http://h.hatena.ne.jp/api#favorites-create">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>status_id (target status_id)
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>status ({:text =&gt; &#8216;hoge&#8217;, &#8230;}) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000025">XML_Parser#parse_status</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000019.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000019.html');return false;">
+          <span class="method-name">favorites_destroy</span><span class="method-args">(status_id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>delete star for <a
+href="http://h.hatena.ne.jp/api#favorites-destroy">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>status_id (target status_id)
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>status {:text =&gt; &#8216;hoge&#8217;, &#8230;}) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000025">XML_Parser#parse_status</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000016.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000016.html');return false;">
+          <span class="method-name">friendship_create</span><span class="method-args">(user_id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>friend following for <a
+href="http://h.hatena.ne.jp/api#friendship-create">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>user_id (target user_id)
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>user ({:id =&gt; &#8216;hoge&#8217;, &#8230;}) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000028">XML_Parser#parse_user</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000017.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000017.html');return false;">
+          <span class="method-name">friendship_destroy</span><span class="method-args">(user_id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>friend unfollowing for <a
+href="http://h.hatena.ne.jp/api#friendship-destroy">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>user_id (target user_id)
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>user ({:id =&gt; &#8216;hoge&#8217;, &#8230;}) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000028">XML_Parser#parse_user</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000005.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000005.html');return false;">
+          <span class="method-name">get_album</span><span class="method-args">(keyword = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>get timeline(include picture-url) from <a
+href="http://h.hatena.ne.jp/api#statuses-album">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>keyword (target keyword)
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>timeline ([{:id =&gt; 12345, &#8230;}, &#8230;]) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000034">Utils#parse_options</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000024">XML_Parser#parse_timeline</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000008.html');return false;">
+          <span class="method-name">get_followers</span><span class="method-args">(user_id = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>get followers from <a
+href="http://h.hatena.ne.jp/api#statuses-followers">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>user_id (target user_id)
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>users ([{:name =&gt; &#8216;hoge&#8217;, &#8230;}, &#8230;]) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000027">XML_Parser#parse_users</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000009.html');return false;">
+          <span class="method-name">get_friend</span><span class="method-args">(user_id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>get friend from <a
+href="http://h.hatena.ne.jp/api#friendship-show">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>user_id (target user_id)
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>user ({:name =&gt; &#8216;hoge&#8217;, &#8230;}) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000028">XML_Parser#parse_user</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000007.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000007.html');return false;">
+          <span class="method-name">get_friends</span><span class="method-args">(user_id = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>get friends from <a
+href="http://h.hatena.ne.jp/api#statuses-friends">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>user_id (target user_id)
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>users ([{:name =&gt; &#8216;hoge&#8217;, &#8230;}, &#8230;]) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000027">XML_Parser#parse_users</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000002.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000002.html');return false;">
+          <span class="method-name">get_friends_timeline</span><span class="method-args">(user_id = nil, options = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>get friends_timeline from <a
+href="http://h.hatena.ne.jp/api#statuses-friends_timeline">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>user_id (target user_id) [, options ({:count =&gt; 20, [&#8230;]})]
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>timeline ([{:id =&gt; 12345, &#8230;}, &#8230;]) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000034">Utils#parse_options</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000024">XML_Parser#parse_timeline</a>,
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000010.html');return false;">
+          <span class="method-name">get_hot_keywords</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>get hot-keyword from <a
+href="http://h.hatena.ne.jp/api#keywords-hot">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>keywords ([{:title =&gt; &#8216;hoge&#8217;, &#8230;}, &#8230;]) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000029">XML_Parser#parse_keywords</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000013.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000013.html');return false;">
+          <span class="method-name">get_keyword</span><span class="method-args">(keyword)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>get keyword from <a
+href="http://h.hatena.ne.jp/api#keywords-show">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>keyword (target keyword)
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>keyword ({:title =&gt; &#8216;hoge&#8217;, &#8230;}) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000030">XML_Parser#parse_keyword</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000011.html');return false;">
+          <span class="method-name">get_keyword_list</span><span class="method-args">(options = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>get keyword-list from <a
+href="http://h.hatena.ne.jp/api#keywords-list">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>options =&gt; {:page =&gt; pagenum}
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>keywords ([{:title =&gt; &#8216;hoge&#8217;, &#8230;}, &#8230;]) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000034">Utils#parse_options</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000029">XML_Parser#parse_keywords</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000004.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000004.html');return false;">
+          <span class="method-name">get_keyword_timeline</span><span class="method-args">(keyword, options = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>get keyword_timeline from <a
+href="http://h.hatena.ne.jp/api#statuses-keyword_timeline">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>keywrod (target keyword) [, options ({:count =&gt; 20, [&#8230;]})]
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>timeline ([{:id =&gt; 12345, &#8230;}, &#8230;]) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000034">Utils#parse_options</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000024">XML_Parser#parse_timeline</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000012.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000012.html');return false;">
+          <span class="method-name">get_keywords</span><span class="method-args">(user_id = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>get following keywords from <a
+href="http://h.hatena.ne.jp/api#statuses-keywords">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>user_id (target user_id)
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>keywords ([{:title =&gt; &#8216;hoge&#8217;, &#8230;}, &#8230;]) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a> <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a> <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a> <a
+href="Rhaiker/XML_Parser.html#M000029">XML_Parser#parse_keywords</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000001.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000001.html');return false;">
+          <span class="method-name">get_public_timeline</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>get public-timeline from <a
+href="http://h.hatena.ne.jp/api#statuses-public_timeline">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>timeline ([{:id =&gt; 12345, &#8230;}, &#8230;]) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000024">XML_Parser#parse_timeline</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000006.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000006.html');return false;">
+          <span class="method-name">get_status</span><span class="method-args">(status_id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>get status from <a
+href="http://h.hatena.ne.jp/api#statuses-show">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>status_id (target status_id)
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>status ({:id =&gt; 12345, &#8230;}) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000025">XML_Parser#parse_status</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000003.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000003.html');return false;">
+          <span class="method-name">get_user_timeline</span><span class="method-args">(user_id = nil, options = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>get user_timeline from <a
+href="http://h.hatena.ne.jp/api#statuses-user_timeline">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>user_id (target user_id) [, options ({:count =&gt; 20, [&#8230;]})]
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>timeline ([{:id =&gt; 12345, &#8230;}, &#8230;]) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/Utils.html#M000034">Utils#parse_options</a>, <a
+href="Rhaiker/XML_Parser.html#M000024">XML_Parser#parse_timeline</a>,
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000020.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000020.html');return false;">
+          <span class="method-name">keyword_create</span><span class="method-args">(keyword)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>following keyword for <a
+href="http://h.hatena.ne.jp/api#keywords-create">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>keyword (target keyword)
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>keyword ({:title =&gt; &#8216;hoge&#8217;, &#8230;} or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000030">XML_Parser#parse_keyword</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000021.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000021.html');return false;">
+          <span class="method-name">keyword_destroy</span><span class="method-args">(keyword)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>unfollowing keyword for <a
+href="http://h.hatena.ne.jp/api#keywords-destroy">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>keyword (target keyword)
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>keyword ({:title =&gt; &#8216;hoge&#8217;, &#8230;}) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000030">XML_Parser#parse_keyword</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000022.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000022.html');return false;">
+          <span class="method-name">keyword_relation_create</span><span class="method-args">(word1, word2)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>create relation word1 and word2 for <a
+href="http://h.hatena.ne.jp/api#keywords-relation_create">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>word1 (target word), word2 (target word)
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>keyword ({:title =&gt; &#8216;hoge&#8217;, &#8230;}) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000030">XML_Parser#parse_keyword</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000023.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000023.html');return false;">
+          <span class="method-name">keyword_relation_destroy</span><span class="method-args">(word1, word2)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>delete relation word1 and word2 for <a
+href="http://h.hatena.ne.jp/api#keywords-relation_destroy">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>word1 (target word), word2 (rarget word)
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>keyword ({:title =&gt; &#8216;hoge&#8217;, &#8230;}) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000030">XML_Parser#parse_keyword</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000015.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000015.html');return false;">
+          <span class="method-name">status_destroy</span><span class="method-args">(status_id)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>delete status for <a
+href="http://h.hatena.ne.jp/api#statuses-destroy">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>status_id (target status_id)
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>status ({:text =&gt; &#8216;hoge&#8217;, &#8230;}) or false
+
+</td></tr>
+<tr><td valign="top">RelationMethods:</td><td>create_uri, create_request, http_access, parse_status
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="Rhaiker.src/M000014.html" target="Code" class="method-signature"
+            onclick="popupCode('Rhaiker.src/M000014.html');return false;">
+          <span class="method-name">status_update</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <table>
+<tr><td valign="top">Description:</td><td>update status for <a
+href="http://h.hatena.ne.jp/api#statuses-update">Hatena::Haiku::API</a>
+
+</td></tr>
+<tr><td valign="top">Params:</td><td>options ({:status =&gt; &#8216;hoge&#8217;, &#8230;}]
+
+</td></tr>
+<tr><td valign="top">Return:</td><td>status ({:text =&gt; &#8216;hoge&#8217;, &#8230;}) or false
+
+</td></tr>
+<tr><td valign="top">RelatedMethods:</td><td><a href="Rhaiker/Utils.html#M000032">Utils#create_uri</a>, <a
+href="Rhaiker/Utils.html#M000031">Utils#create_request</a>, <a
+href="Rhaiker/Utils.html#M000034">Utils#parse_options</a>, <a
+href="Rhaiker/Utils.html#M000033">Utils#http_access</a>, <a
+href="Rhaiker/XML_Parser.html#M000025">XML_Parser#parse_status</a>
+
+</td></tr>
+<tr><td valign="top">Notes:</td><td>Still does not support of &#8216;Upload Image File&#8216;
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
